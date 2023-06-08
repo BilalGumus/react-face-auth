@@ -21,7 +21,8 @@ const router = createBrowserRouter(
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </>
-  )
+  ),
+  { basename: import.meta.env.DEV ? "/" : "/react-face-auth/" }
 );
 
 export default router;
