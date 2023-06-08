@@ -27,14 +27,15 @@ function Login() {
   }
 
   const loadModels = async () => {
-    await faceapi.nets.ssdMobilenetv1.loadFromUri("/models");
-    await faceapi.nets.faceLandmark68Net.loadFromUri("/models");
-    await faceapi.nets.faceRecognitionNet.loadFromUri("/models");
+    const uri = import.meta.env.DEV ? "/models" : "/react-face-auth/models";
+
+    await faceapi.nets.ssdMobilenetv1.loadFromUri(uri);
+    await faceapi.nets.faceLandmark68Net.loadFromUri(uri);
+    await faceapi.nets.faceRecognitionNet.loadFromUri(uri);
   };
 
   useEffect(() => {
     setTempAccount(location?.state?.account);
-    console.log(location?.state);
   }, []);
   useEffect(() => {
     if (tempAccount) {
@@ -138,7 +139,10 @@ function Login() {
       const imgPath =
         tempAccount?.type === "CUSTOM"
           ? tempAccount.picture
-          : "temp-accounts/" + tempAccount.picture;
+          : import.meta.env.DEV
+          ? `/temp-accounts/${tempAccount.picture}`
+          : `/react-face-auth/temp-accounts/${tempAccount.picture}`;
+
       img = await faceapi.fetchImage(imgPath);
     } catch {
       setImageError(true);

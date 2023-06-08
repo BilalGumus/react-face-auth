@@ -26,7 +26,9 @@ function User({ user, type }) {
                   src={
                     type === "CUSTOM"
                       ? user.picture
-                      : `/temp-accounts/${user.picture}`
+                      : import.meta.env.DEV
+                      ? `/temp-accounts/${user.picture}`
+                      : `/react-face-auth/temp-accounts/${user.picture}`
                   }
                   alt={user.fullName}
                 />
