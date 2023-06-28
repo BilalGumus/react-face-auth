@@ -4,7 +4,7 @@ This is a facial recognition authentication application developed using React an
 
 ## Demo
 
-🔵 You can find a live demo of the application [here](https://bilalgumus.github.io/react-face-auth/).
+🔵 You can find a live demo of the application [here](https://react-face-auth.bilalgumus.me/).
 
 ## Screenshots
 
