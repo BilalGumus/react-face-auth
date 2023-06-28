@@ -8,9 +8,9 @@ export default defineConfig(({ command }) => {
     base: "/",
   };
 
-  if (command !== "serve") {
-    config.base = "/react-face-auth/";
-  }
+  // if (command !== "serve") {
+  //   config.base = "/react-face-auth/";
+  // }
 
   return config;
 });

@@ -30,9 +30,10 @@ function Protected() {
             src={
               account?.type === "CUSTOM"
                 ? account.picture
-                : import.meta.env.DEV
-                ? `/temp-accounts/${account.picture}`
-                : `/react-face-auth/temp-accounts/${account.picture}`
+                : // : import.meta.env.DEV
+                  // ? `/temp-accounts/${account.picture}`
+                  // : `/react-face-auth/temp-accounts/${account.picture}`
+                  `/temp-accounts/${account.picture}`
             }
             alt={account.fullName}
           />
